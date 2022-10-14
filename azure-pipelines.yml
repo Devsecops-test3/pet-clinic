@@ -4,7 +4,8 @@
 # https://aka.ms/yaml
 
 pool:
-  vmImage: ubuntu-latest
+  name: 'Self-Hosted Windows Agent' 
+  vmImage: 'DESKTOP-4D5048O'
 
 steps:
 - script: echo Hello, world!
