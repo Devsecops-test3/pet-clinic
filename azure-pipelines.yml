@@ -7,8 +7,8 @@ trigger:
 - main
 
 pool:
-  name: 'Self-Hosted Windows Agent' 
-  vmImage: 'DESKTOP-4D5048O'
+  name: 'Default' 
+  vmImage: 'PC-personal'
 
 steps:
 - task: Gradle@3
