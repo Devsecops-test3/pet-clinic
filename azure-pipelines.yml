@@ -8,10 +8,32 @@ pool:
   vmImage: 'DESKTOP-4D5048O'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- task: Gradle@3
+  inputs:
+   gradleWrapperFile: 'gradlew'
+   tasks: 'build'
+   publishJUnitResults: true
+   testResultsFiles: '**/TEST-*.xml'
+   javaHomeOptions: 'JDKVersion'
+   sonarQubeRunAnalysis: false
+   spotBugsAnalysis: false
+   
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'SonarCloud'
+    organization: 'lytch000'
+    projectKey: 'Lytch000_pet-clinic'
+    projectName: 'pet-clinic'
+  
+- task: Gradle@3
+  inputs:
+    gradleWrapperFile: 'gradlew'
+    tasks: 'sonarqube'
+    publishJUnitResults: true
+    testResultsFiles: '**/TEST-*.xml'
+    javaHomeOption: 'JDKVersion'
+    sonarQubeRunAnalysis: true
+    sqGradlePluginVersionChoice: 'specify'
+    sonarQubeGradlePluginVersion: '2.6.1'
+    spotBugsAnalysis: false
