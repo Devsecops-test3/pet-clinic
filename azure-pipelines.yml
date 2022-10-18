@@ -7,8 +7,8 @@ trigger:
 - main
 
 pool:
-  name: 'Default' 
-  vmImage: 'pc'
+  name: 'Azure Pipelines' 
+  vmImage: 'Hosted Agent'
 
 steps:
 - task: Gradle@3
