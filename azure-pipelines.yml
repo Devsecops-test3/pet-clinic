@@ -13,6 +13,7 @@ pool:
 steps:
 - task: Gradle@3
   inputs:
+    org.gradle.daemon: false
     gradleWrapperFile: 'gradlew'
     tasks: 'build'
     publishJUnitResults: true
