@@ -37,8 +37,8 @@ steps:
     sonarQubeGradlePluginVersion: '3.3'
     spotBugsAnalysis: false
 
-- task: dependecy-check-build-task@6
+- task: OWASPDependencyCheck@0
   inputs:
     projectName: 'pet-clinic'
-    scanPath: '$(Build.SourceDirectory)/build/libs'
+    scanPath: '$(Build.SourcesDirectory)/build/libs'
     format: 'HTML'
