@@ -36,3 +36,9 @@ steps:
     sqGradlePluginVersionChoice: 'specify'
     sonarQubeGradlePluginVersion: '3.3'
     spotBugsAnalysis: false
+
+- task: dependecy-check-build-task@6
+  inputs:
+    projectName: 'pet-clinic'
+    scanPath: '$(Build.SourceDirectory)/build/libs'
+    format: 'HTML'
