@@ -22,7 +22,8 @@ steps:
   inputs:
     SonarCloud: 'SonarCloud'
     organization: 'lytch000'
-    scannerMode: 'Other'
+    projectKey: 'Lytch000_pet-clinic'
+    projectName: 'pet-clinic'
 
 - task: Gradle@3
   inputs:
