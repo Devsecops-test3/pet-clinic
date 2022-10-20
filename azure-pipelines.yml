@@ -48,12 +48,12 @@ steps:
   inputs:
     dockerVersion: '17.09.0-ce'
   
-- task: DockerLogin@2
+- task: Docker@2
   inputs:
     containerRegistry: 'Docker'
     command: 'login'
 
-- task: DockerBuild@2
+- task: Docker@2
   inputs:
     containerRegistry: 'Docker'
     repository: 'lytch000/pet-clinic'
