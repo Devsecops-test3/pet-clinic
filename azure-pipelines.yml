@@ -37,12 +37,11 @@ steps:
     sonarQubeGradlePluginVersion: '3.3'
     spotBugsAnalysis: false
 
-- task: OWASPDependencyCheck@0
+- task: dependency-check-build-task@6
   inputs:
     projectName: 'pet-clinic'
     scanPath: '$(Build.SourcesDirectory)/build/libs'
     format: 'HTML'
-  
 
 - task: DockerInstaller@0
   inputs:
