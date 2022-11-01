@@ -9,7 +9,6 @@ pool:
 steps:
 - task: Gradle@3
   inputs:
-    org.gradle.daemon: false
     gradleWrapperFile: 'gradlew'
     tasks: 'build'
     publishJUnitResults: true
@@ -37,12 +36,7 @@ steps:
     sonarQubeGradlePluginVersion: '3.3'
     spotBugsAnalysis: false
 
-- task: Application security testing@2022
+- task: sonarcloud-buildbreaker@2
   inputs:
-    projectName: 'pet-clinic'
-    enableProxy: false
-    enableSastScan: true
-    CheckmarxService: 'checkmarx-sast'
-    preset: 'High and Medium and Low'
-    generatePDFReport: true
-    enableDependencyScan: false
+    SonarCloud: 'SonarCloud'
+    organization: 'lytch000'
